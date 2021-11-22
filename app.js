@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs')
 
-//mysql://bee396f6cfcd57:29fcd5a4@us-cdbr-east-04.cleardb.com/heroku_a9a5491c2f2da3e?reconnect=true
+
 const db = mysql.createConnection({
     host: 'us-cdbr-east-04.cleardb.com',
     user: 'bee396f6cfcd57',
@@ -29,27 +29,27 @@ app.get('/getUsers', function(req,res){
     
 })
 
-app.post('/postUsers', function(req, res){
+// app.post('/postUsers', function(req, res){
 
-    var username =req.body.username;
-    var firstname =req.body.firstname;
-    var middlename =req.body.middlename;
-    var lastname =req.body.lastname;
-    var password =req.body.password;
-    var emailAddress =req.body.emailAddress;
-    var gender =req.body.gender;
-    var birthdate =req.body.birthdate;
+//     var username =req.body.username;
+//     var firstname =req.body.firstname;
+//     var middlename =req.body.middlename;
+//     var lastname =req.body.lastname;
+//     var password =req.body.password;
+//     var emailAddress =req.body.emailAddress;
+//     var gender =req.body.gender;
+//     var birthdate =req.body.birthdate;
 
-    db.query("INSERT INTO user(username,firstname,middlename,lastname,password,emailAddress,gender,birthdate) values (?, ?, ?, ?, ?, ?, ?, ?)",[username,firstname,middlename,lastname,password,emailAddress,gender,birthdate],function(error, result, fields){
-    res.json({
-        status: 1,
-        message: "User Data Inserted Successful",
-        data: result
-    });
-   // res.render('pages/index', { rows });
+//     db.query("INSERT INTO user(username,firstname,middlename,lastname,password,emailAddress,gender,birthdate) values (?, ?, ?, ?, ?, ?, ?, ?)",[username,firstname,middlename,lastname,password,emailAddress,gender,birthdate],function(error, result, fields){
+//     res.json({
+//         status: 1,
+//         message: "User Data Inserted Successful",
+//         data: result
+//     });
+//    // res.render('pages/index', { rows });
 
-});
-});
+// });
+// });
 
 // app.get('/user/:id', (req, res) => {
 //     console.log("fetching user with id: " + req.params.id)
